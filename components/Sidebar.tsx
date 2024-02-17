@@ -42,7 +42,7 @@ const Sidebar = () => {
                     </SignedIn>
 
                     <SignedOut>
-                        <Button className="">
+                        <Button asChild className="bg-purple-600 hover:bg-purple-600 text-light-400">
                             <Link href="/sign-in">Get Started</Link>
                         </Button>
                     </SignedOut>

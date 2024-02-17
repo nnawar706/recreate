@@ -3,15 +3,16 @@
 import Link from "next/link"
 import Image from 'next/image'
 import { usePathname } from "next/navigation"
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 
 import {
     Sheet,
     SheetContent,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import { SignedIn, UserButton } from "@clerk/nextjs"
 import { menu } from "@/app/assets"
 import { navLinks } from "@/constants"
+import { Button } from "./ui/button"
 
 const MobileNav = () => {
     const pathname = usePathname()
@@ -32,27 +33,34 @@ const MobileNav = () => {
                             className="cursor-pointer brightness-200"/>
                         </SheetTrigger>
                         <SheetContent className="sm:w-64">
-                            <Image src="/logo.svg" alt="logo" width="120" height="20"
-                            className="mb-8"/>
-                            <ul className="w-full flex flex-col gap-3">
-                                {navLinks.map((link, index) => {
-                                    const isActive = link.route === pathname
+                            <>
+                                <Image src="/logo.svg" alt="logo" width="120" height="20"
+                                className="mb-8"/>
+                                <ul className="w-full flex flex-col gap-3">
+                                    {navLinks.map((link, index) => {
+                                        const isActive = link.route === pathname
 
-                                    return <li key={index}
-                                    className={`w-full whitespace-nowrap rounded-md cursor-pointer
-                                    ${isActive ? 'bg-purple-600 text-light-700' : 'text-light-400'}`}
-                                    >
-                                        <Link href={link.route} className="flex gap-4 p-2">
-                                            <Image src={link.icon} alt="icon" width={24} height={24}
-                                            className={`${isActive ? 'brightness-200' : 'brightness-300'}`}/>
-                                            {link.label}
-                                        </Link>
-                                    </li>
-                                })}
-                            </ul>
+                                        return <li key={index}
+                                        className={`w-full whitespace-nowrap rounded-md cursor-pointer
+                                        ${isActive ? 'bg-purple-600 text-light-700' : 'text-light-400'}`}
+                                        >
+                                            <Link href={link.route} className="flex gap-4 p-2">
+                                                <Image src={link.icon} alt="icon" width={24} height={24}
+                                                className={`${isActive ? 'brightness-200' : 'brightness-300'}`}/>
+                                                {link.label}
+                                            </Link>
+                                        </li>
+                                    })}
+                                </ul>
+                            </>
                         </SheetContent>
                     </Sheet>
                 </SignedIn>
+                <SignedOut>
+                    <Button asChild className="bg-purple-600 hover:bg-purple-600 text-light-400">
+                        <Link href="/sign-in">Get Started</Link>
+                    </Button>
+                </SignedOut>
             </nav>
         </section>
     )
