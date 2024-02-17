@@ -1,15 +1,15 @@
 export interface createUserParams {
     email: string;
     username: string;
-    firstname: string;
-    lastname: string;
+    firstName: string;
+    lastName: string;
     photo: string;
     clerkId: string;
 }
 
 export interface updateUserParams {
     username: string;
-    firstname: string;
-    lastname: string;
+    firstName: string;
+    lastName: string;
     photo: string;
 }
