@@ -7,6 +7,11 @@ export const navLinks = [
         icon: home,
     },
     {
+        label: "Profile",
+        route: "/profile",
+        icon: profile,
+    },
+    {
         label: "Image Restore",
         route: "/transformations/add/restore",
         icon: image,
@@ -30,11 +35,6 @@ export const navLinks = [
         label: "Background Remove",
         route: "/transformations/add/removeBackground",
         icon: camera,
-    },
-    {
-        label: "Profile",
-        route: "/profile",
-        icon: profile,
     },
     {
         label: "Buy Credits",

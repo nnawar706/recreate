@@ -1,11 +1,12 @@
 "use client"
 
 import { navLinks } from '@/constants'
-import { SignedIn } from '@clerk/nextjs'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
+import { Button } from './ui/button'
 
 const Sidebar = () => {
     const pathname = usePathname()
@@ -20,6 +21,9 @@ const Sidebar = () => {
                 <nav className="h-full flex-col justify-between md:flex md:gap-4">
                     <SignedIn>
                         <ul className="hidden w-full flex-col gap-2 md:flex">
+                            <li className="flex justify-center items-center cursor-pointer gap-2 p-4">
+                                <UserButton afterSignOutUrl='/'/>
+                            </li>
                             {navLinks.map((link, index) => {
                                 const isActive = link.route === pathname
 
@@ -36,6 +40,12 @@ const Sidebar = () => {
                             })}
                         </ul>
                     </SignedIn>
+
+                    <SignedOut>
+                        <Button className="">
+                            <Link href="/sign-in">Get Started</Link>
+                        </Button>
+                    </SignedOut>
                 </nav>
             </div>
         </aside>
