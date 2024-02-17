@@ -37,6 +37,12 @@ const config = {
           600: "#2B3674",
           700: "#384262",
         },
+        light: {
+          400: "#E8E8E8",
+          500: "#F0F0F0",
+          600: "F5F5F5",
+          700: "#F8F8F8",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
