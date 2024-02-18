@@ -22,3 +22,13 @@ export interface transformations {
     };
     removeBackground?: boolean;
 };
+
+export interface transformedImageProps {
+    image: any;
+    type: string;
+    title: string;
+    isTransforming: boolean;
+    hasDownload?: boolean;
+    transformationConfig: transformations;
+    setIsTransforming: React.Dispatch<React.SetStateAction<boolean>>
+}

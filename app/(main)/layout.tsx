@@ -1,5 +1,6 @@
 import MobileNav from "@/components/MobileNav"
 import Sidebar from "@/components/Sidebar"
+import { Toaster } from "@/components/ui/toaster"
 
 export default function MainLayout ({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
@@ -14,6 +15,7 @@ export default function MainLayout ({ children }: Readonly<{ children: React.Rea
                     {children}
                 </div>
             </div>
+            <Toaster/>
         </main>
     )
 }

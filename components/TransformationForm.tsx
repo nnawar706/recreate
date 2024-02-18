@@ -14,6 +14,7 @@ import CustomInput from "./CustomInput"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
 import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils"
 import ImageUploader from "./ImageUploader"
+import TransformedImage from "./TransformedImage"
 
 export const formSchema = z.object({
     title: z.string().min(2, {
@@ -163,6 +164,15 @@ const TransformationForm = ({ data = null, action, userId, type,
                                     credit={remainingCredit}
                                 />
                             )}
+                        />
+
+                        <TransformedImage
+                            image={image}
+                            type={type}
+                            title={form.getValues().title}
+                            isTransforming={isTransforming}
+                            setIsTransforming={setIsTransforming}
+                            transformationConfig={transformationConfig}
                         />
                     </div>
                     <div className="flex flex-col gap-4">
