@@ -192,4 +192,4 @@ export const defaultValues = {
     publicId: "",
 };
 
-export const creditFee = -1;
+export const creditFee = -2;

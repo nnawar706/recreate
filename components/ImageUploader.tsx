@@ -8,6 +8,7 @@ import { useToast } from './ui/use-toast'
 import { imageUploaderProps } from '@/types/general'
 import { add } from '@/app/assets'
 import { dataUrl, getImageSize } from '@/lib/utils'
+import { creditFee } from '@/constants'
 
 const ImageUploader = ({onValueChange, setImage, image, 
     publicId, type, credit}: imageUploaderProps) => {
@@ -19,14 +20,14 @@ const ImageUploader = ({onValueChange, setImage, image,
             publicId: response?.info?.public_id,
             width: response?.info?.width,
             height: response?.info?.height,
-            secureUrl: response?.info?.secure_url
+            secureURL: response?.info?.secure_url
         }))
 
         onValueChange(response?.info?.public_id)
 
         toast({
             title: 'Image uploaded successfully',
-            description: `2 credits used. Reamining credit: ${credit - 2}`,
+            description: `${Math.abs(creditFee)} credits used. Reamining credit: ${credit + creditFee}`,
             duration: 5000,
             className: "bg-grey-900 text-light-600"
         })
