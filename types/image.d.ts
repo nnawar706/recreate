@@ -34,3 +34,16 @@ export interface updateImageParams {
     userId: string;
     path: string;
 }
+
+export interface collection {
+    images: any;
+    totalPages?: number;
+    page: number;
+    hasSearch?: boolean;
+}
+
+export interface getAllImageParams {
+    limit?: number;
+    page?: number;
+    query?: string;
+}

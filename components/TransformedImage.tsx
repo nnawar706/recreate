@@ -3,8 +3,8 @@
 import { transformedImageProps } from '@/types/transformation'
 import { Button } from './ui/button'
 import { Download } from 'lucide-react'
-import { CldImage } from 'next-cloudinary'
-import { dataUrl, debounce, getImageSize } from '@/lib/utils'
+import { CldImage, getCldImageUrl } from 'next-cloudinary'
+import { dataUrl, debounce, download, getImageSize } from '@/lib/utils'
 import { PlaceholderValue } from 'next/dist/shared/lib/get-img-props'
 import Image from 'next/image'
 import { spinner } from '@/app/assets'
@@ -12,8 +12,16 @@ import { spinner } from '@/app/assets'
 const TransformedImage = ({ image, type, title, isTransforming, setIsTransforming, 
     transformationConfig, hasDownload = false }: transformedImageProps) => {
 
-    // TODO: add download function
-    const onDownload = () => {}
+    const onDownload = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault()
+
+        download(getCldImageUrl({
+            width: image?.width,
+            height: image?.height,
+            src: image?.publicId,
+            ...transformationConfig
+        }), `${title}-${image?.publicId}`)
+    }
 
     return (
         <div className="flex flex-col gap-4 h-full">
@@ -32,7 +40,7 @@ const TransformedImage = ({ image, type, title, isTransforming, setIsTransformin
                         width={getImageSize(type, image, 'width')}
                         height={getImageSize(type, image, 'height')}
                         src={image.publicId}
-                        alt={image.title}
+                        alt={title}
                         sizes={"(max-width: 767px) 100vw, 50vw"}
                         placeholder={dataUrl as PlaceholderValue}
                         className="h-fit min-h-72 w-full rounded-md border border-dashed bg-purple-100/20 

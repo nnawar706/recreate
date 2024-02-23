@@ -11,7 +11,7 @@ export default function MainLayout ({ children }: Readonly<{ children: React.Rea
             <MobileNav/>
             <div className="flex-1 py-8 lg:py-10 mt-16 lg:mt-0 lg:max-h-screen 
             overflow-auto">
-                <div className="max-w-5xl mx-auto px-5 md:px-10 w-full text-light-400 p-16-regular">
+                <div className="max-w-7xl mx-auto px-5 md:px-10 w-full text-light-400">
                     {children}
                 </div>
             </div>

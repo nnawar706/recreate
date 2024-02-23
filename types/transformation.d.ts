@@ -30,5 +30,5 @@ export interface transformedImageProps {
     isTransforming: boolean;
     hasDownload?: boolean;
     transformationConfig: transformations;
-    setIsTransforming: React.Dispatch<React.SetStateAction<boolean>>
+    setIsTransforming?: React.Dispatch<React.SetStateAction<boolean>>
 }

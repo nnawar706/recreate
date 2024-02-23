@@ -1,7 +1,9 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
+import qs from "qs"
 
 import { aspectRatioOptions } from "@/constants"
+import { createUrlQueryParams, removeUrlQueryParams } from "@/types/general"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -58,6 +60,26 @@ export const deepMergeObjects = (obj1: any, obj2: any) => {
   return output
 }
 
+export const download = (url: string, filename: string) => {
+  if (!url) {
+    throw new Error("Resource URL not provided")
+  }
+
+  fetch(url)
+    .then((response) => response.blob())
+    .then((blob) => {
+      const blobURL = URL.createObjectURL(blob)
+      const a = document.createElement("a")
+      a.href = blobURL
+
+      if (filename && filename.length)
+        a.download = `${filename.replace(" ", "_")}.png`
+      document.body.appendChild(a)
+      a.click()
+    })
+    .catch((error) => console.log({ error }))
+}
+
 export const getImageSize = (
   type: string,
   image: any,
@@ -94,5 +116,35 @@ const shimmer = (w: number, h: number) => `
 export const dataUrl = `data:image/svg+xml;base64,${toBase64(
     shimmer(1000, 1000)
 )}`
+
+export const formUrlQuery = ({
+  searchParams,
+  key,
+  value,
+}: createUrlQueryParams) => {
+  const params = { ...qs.parse(searchParams.toString()), [key]: value };
+
+  return `${window.location.pathname}?${qs.stringify(params, {
+    skipNulls: true,
+  })}`;
+}
+
+export function removeKeysFromQuery({
+  searchParams,
+  keysToRemove,
+}: removeUrlQueryParams) {
+  const currentUrl = qs.parse(searchParams);
+
+  keysToRemove.forEach((key) => {
+    delete currentUrl[key];
+  });
+
+  // Remove null or undefined values
+  Object.keys(currentUrl).forEach(
+    (key) => currentUrl[key] == null && delete currentUrl[key]
+  );
+
+  return `${window.location.pathname}?${qs.stringify(currentUrl)}`;
+}
 
 export type AspectRatioKey = keyof typeof aspectRatioOptions
