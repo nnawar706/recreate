@@ -28,7 +28,7 @@ const TransformedImage = ({ image, type, title, isTransforming, setIsTransformin
             <div className="flex justify-between">
                 <h3 className="text-light-600">Transformed</h3>
 
-                <Button variant="outline" size="icon" 
+                <Button variant="outline" size="icon"
                 onClick={onDownload} disabled={!hasDownload}>
                     <Download className="h-4 w-4"/>
                 </Button>
@@ -51,7 +51,7 @@ const TransformedImage = ({ image, type, title, isTransforming, setIsTransformin
                         onError={() => {
                             debounce(() => {
                                 setIsTransforming && setIsTransforming(false)
-                            }, 8000)
+                            }, 8000)()
                         }}
                         {...transformationConfig}
                     />
@@ -59,7 +59,7 @@ const TransformedImage = ({ image, type, title, isTransforming, setIsTransformin
                     {isTransforming && (
                         <div className="flex flex-col items-center justify-center gap-2 absolute border bg-gray-800 
                         left-2/4 top-2/4 size-full -translate-x-1/2 -translate-y-1/2 rounded-md">
-                            <Image src={spinner} width="50" height="50" alt="transforming-icon"/>
+                            <Image src={spinner} width="50" height="50" alt="spinner"/>
                             <p className="text-white/80">Please wait...</p>
                         </div>
                     )}

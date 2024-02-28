@@ -1,45 +1,43 @@
-import { bag, camera, filter, home, image, profile, scan, star } from "@/app/assets"
-
 export const navLinks = [
     {
         label: "Home",
         route: "/",
-        icon: home,
+        icon: "/icons/home.svg",
     },
     {
         label: "Profile",
         route: "/profile",
-        icon: profile,
+        icon: "/icons/profile.svg",
     },
     {
         label: "Image Restore",
         route: "/transformations/add/restore",
-        icon: image,
+        icon: "/icons/image.svg",
     },
     {
         label: "Generative Fill",
         route: "/transformations/add/fill",
-        icon: star,
+        icon: "icons/stars.svg",
     },
     {
         label: "Object Remove",
         route: "/transformations/add/remove",
-        icon: scan,
+        icon: "icons/scan.svg",
     },
     {
         label: "Object Recolor",
         route: "/transformations/add/recolor",
-        icon: filter,
+        icon: "icons/filter.svg",
     },
     {
         label: "Background Remove",
         route: "/transformations/add/removeBackground",
-        icon: camera,
+        icon: "icons/camera.svg",
     },
     {
         label: "Buy Credits",
         route: "/credits",
-        icon: bag,
+        icon: "icons/bag.svg",
     },
 ];
 
@@ -47,12 +45,12 @@ export const plans = [
     {
         _id: 1,
         name: "Free",
-        icon: "/assets/icons/free-plan.svg",
+        icon: "/icons/plan.svg",
         price: 0,
-        credits: 20,
+        credits: 10,
         inclusions: [
         {
-            label: "20 Free Credits",
+            label: "10 Free Credits",
             isIncluded: true,
         },
         {
@@ -72,7 +70,7 @@ export const plans = [
     {
         _id: 2,
         name: "Pro Package",
-        icon: "/assets/icons/free-plan.svg",
+        icon: "/icons/plan.svg",
         price: 40,
         credits: 120,
         inclusions: [
@@ -97,7 +95,7 @@ export const plans = [
     {
         _id: 3,
         name: "Premium Package",
-        icon: "/assets/icons/free-plan.svg",
+        icon: "/icons/plan.svg",
         price: 199,
         credits: 2000,
         inclusions: [

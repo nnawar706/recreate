@@ -80,7 +80,9 @@ const TransformationForm = ({ data = null, action, userId, type,
                     [field === 'prompt' ? 'prompt' : 'to']: value
                 }
             }))
-        }, 1000)
+        }, 1000)()
+
+        return onChangeField(value)
     }
 
     const onTransform = async () => {
@@ -190,7 +192,8 @@ const TransformationForm = ({ data = null, action, userId, type,
                         label="Select Aspect Ratio"
                         className="w-full"
                         render={({ field }) => 
-                        <Select onValueChange={(value) => onSelectChange(value, field.onChange)}>
+                        <Select value={field.value}
+                        onValueChange={(value) => onSelectChange(value, field.onChange)}>
                             <SelectTrigger className="w-full">
                                 <SelectValue placeholder="Select Ratio" />
                             </SelectTrigger>
