@@ -38,6 +38,10 @@ export default function RootLayout({
       variables: { colorPrimary: "#7600ff" }
     }}>
       <html lang="en">
+        <head>
+          <link rel="manifest" href="/site.webmanifest" crossOrigin="use-credentials" />
+          <meta name="msapplication-TileColor" content="#7600FF"/>
+        </head>
         <body className={cn("font-ibmPlex intialiased", ibmPlex.variable)}>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
             {children}
