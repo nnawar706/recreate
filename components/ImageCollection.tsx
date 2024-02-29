@@ -45,7 +45,7 @@ export const ImageCollection = ({ hasSearch = false, images, totalPages = 1,
             </div>
 
             {images.length > 0 ? (
-                <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                     {images.map((item: IImage) => (
                         <ImageCard image={item} key={item._id}/>
                     ))}
@@ -83,7 +83,7 @@ const ImageCard = ({ image }: { image: IImage }) => {
         <li>
             <Link href={`/transformations/${image._id}`}
             className="flex flex-1 flex-col gap-5 cursor-pointer rounded-md p-4 border-2 
-            border-purple-600/15 shadow-md shadow-purple-200/10 transition-all hover:shadow-purple-200/20">
+            border-purple-600/15 shadow-md shadow-purple-500/10 transition-all hover:shadow-purple-500/20">
                 <CldImage
                     src={image.publicId}
                     alt={image.title}
