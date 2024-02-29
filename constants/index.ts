@@ -17,27 +17,27 @@ export const navLinks = [
     {
         label: "Generative Fill",
         route: "/transformations/add/fill",
-        icon: "icons/stars.svg",
+        icon: "/icons/stars.svg",
     },
     {
         label: "Object Remove",
         route: "/transformations/add/remove",
-        icon: "icons/scan.svg",
+        icon: "/icons/scan.svg",
     },
     {
         label: "Object Recolor",
         route: "/transformations/add/recolor",
-        icon: "icons/filter.svg",
+        icon: "/icons/filter.svg",
     },
     {
         label: "Background Remove",
         route: "/transformations/add/removeBackground",
-        icon: "icons/camera.svg",
+        icon: "/icons/camera.svg",
     },
     {
         label: "Buy Credits",
         route: "/credits",
-        icon: "icons/bag.svg",
+        icon: "/icons/bag.svg",
     },
 ];
 

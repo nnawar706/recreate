@@ -1,25 +1,10 @@
 import add from './add.svg'
-import bag from './bag.svg'
-import camera from './camera.svg'
-import down from './caret-down.svg'
-import check from './check.svg'
-import close from './close.svg'
 import coins from './coins.svg'
 import credits from './credit-coins.svg'
-import cross from './cross.svg'
-import download from './download.svg'
-import filter from './filter.svg'
-import free from './free-plan.svg'
-import home from './home.svg'
-import image from './image.svg'
 import menu from './menu.svg'
 import photo from './photo.svg'
-import profile from './profile.svg'
-import scan from './scan.svg'
-import search from './search.svg'
 import spinner from './spinner.svg'
 import stacked from './stacked-coins.png'
 import star from './stars.svg'
 
-export { add, bag, camera, down, check, close, coins, credits, cross, download, 
-filter, free, home, image, menu, photo, profile, scan, search, spinner, stacked, star }
+export { add, coins, credits, menu, photo, spinner, stacked, star }

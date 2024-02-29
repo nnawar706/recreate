@@ -17,6 +17,7 @@ import { formUrlQuery } from "@/lib/utils"
 import { collection } from "@/types/image"
 import Search from "./Search"
 import { IImage } from "@/lib/database/models/image.model"
+import { TransformationTypeKey } from "@/types/general"
 
 
 export const ImageCollection = ({ hasSearch = false, images, totalPages = 1, 
@@ -60,7 +61,16 @@ export const ImageCollection = ({ hasSearch = false, images, totalPages = 1,
                 <Pagination className="mt-10">
                     <PaginationContent className="flex w-full">
                         <Button disabled={Number(page) <= 1}
-                        onClick={() => onPageChange('prev')}></Button>
+                        onClick={() => onPageChange('prev')}>
+                            <PaginationPrevious/>
+                        </Button>
+                        <p className="flex flex-1 items-center justify-center w-fit">
+                            {page} / {totalPages}
+                        </p>
+                        <Button disabled={Number(page) >= totalPages}
+                        onClick={() => onPageChange('next')}>
+                            <PaginationNext/>
+                        </Button>
                     </PaginationContent>
                 </Pagination>
             )}
@@ -86,7 +96,8 @@ const ImageCard = ({ image }: { image: IImage }) => {
                 />
                 <div className="flex justify-between">
                     <p className="mr-3 line-clamp-1">{image.title}</p>
-                    {/* <Image src={} alt={image.title} width={24} height={24}/> */}
+                    <Image src={`/icons/${transformationTypes[image.transformationType as TransformationTypeKey].icon}`} 
+                    alt={image.title} width={24} height={24}/>
                 </div>
             </Link>
         </li>
