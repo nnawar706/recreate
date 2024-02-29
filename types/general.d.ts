@@ -43,3 +43,10 @@ export interface imageUploaderProps {
     type: string;
     credit: number;
 }
+
+export interface collectionParams {
+    images: IImage[];
+    totalPages: number;
+    page: number;
+    hasSearch?: boolean;
+}

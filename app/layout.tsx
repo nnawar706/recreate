@@ -16,6 +16,15 @@ const ibmPlex = IBM_Plex_Sans({
 export const metadata: Metadata = {
   title: "reCreate.",
   description: "",
+  other: {
+    "theme-color": "",
+    "color-scheme": "dark only",
+    "twitter:image": "",
+    "twitter:card": "summary_large_image",
+    "og:url": "https://recreate-eight.vercel.app/",
+    "og:image": "",
+    "og:type": "website"
+  }
 };
 
 export default function RootLayout({
@@ -34,7 +43,7 @@ export default function RootLayout({
             {children}
           </ThemeProvider>
         </body>
-    </html>
+      </html>
     </ClerkProvider>
   )
 }

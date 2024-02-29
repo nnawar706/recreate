@@ -19,7 +19,7 @@ const MobileNav = () => {
     
     return (
         <section className="fixed flex justify-between items-center h-16 
-        w-full shadow-md shadow-purple-200/50 py-5 px-8 lg:hidden">
+        w-full shadow-sm shadow-purple-600/50 py-5 px-8 lg:hidden">
             <Link href="/" className="flex items-center md:py-2">
                 <Image src="/logo.svg" alt="logo" width="120" height="20"/>
             </Link>
